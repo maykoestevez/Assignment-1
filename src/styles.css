@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    padding: 50px;
+    text-align: center;
+}
+
+.not-valid {
+    color: red;
+    font-size: 12px;
+}
+
+.right {
+    float: right;
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 50px;
+    /* Set same as footer's height */
+}
+
+html {
+    height: 100%;
+}

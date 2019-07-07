@@ -1,0 +1,50 @@
+<div class="container">
+    <h2>Login</h2>
+    <form #loginForm="ngForm">
+        <input
+            name="user"
+            minlength="4"
+            type="text"
+            #uname="ngModel"
+            placeholder="User Here"
+            [(ngModel)]="user.userName"
+            required>
+        <br>
+        <div
+            *ngIf="uname.invalid && (uname.dirty || uname.touched)"
+            class="not-valid">
+            This field is invalid
+        </div>
+        <div
+            class="not-valid"
+            *ngIf="uname.errors?.minlength">
+            must be at least 4 characters long.
+        </div>
+        <br>
+        <input
+            name="password"
+            type="password"
+            #upassword="ngModel"
+            placeholder="Password Here"
+            [(ngModel)]="user.password"
+            required>
+        <br>
+        <label
+            *ngIf="upassword.invalid && (upassword.dirty || upassword.touched)"
+            class="not-valid">
+            This field is required
+        </label>
+        <br>
+        <button
+            type="submit"
+            [disabled]="loginForm.form.invalid"
+            (click)="login()">
+            Login
+        </button>
+        <button
+            type="button"
+            routerLink="/register">
+            Register
+        </button>
+    </form>
+</div>

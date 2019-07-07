@@ -1,0 +1,81 @@
+<div class="container">
+    <h2>Register Form</h2>
+    <form
+        #userForm="ngForm">
+        <input
+            #fullname="ngModel"
+            minlength="4"
+            name="fullname"
+            placeholder="Nombre completo"
+            type="text"
+            [(ngModel)]="user.fullName"
+            required>
+        <div
+            *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"
+            class="not-valid">
+            This field is invalid
+        </div>
+        <div
+            class="not-valid"
+            *ngIf="fullname.errors?.minlength">
+            must be at least 4 characters long.
+        </div>
+        <br>
+        <input
+            #username="ngModel"
+            minlength="4"
+            name="user"
+            placeholder="System User"
+            type="text"
+            [(ngModel)]="user.userName"
+            required>
+        <div
+            *ngIf="username.invalid && (username.dirty || username.touched)"
+            class="not-valid">
+            This field is invalid
+        </div>
+        <div
+            class="not-valid"
+            *ngIf="username.errors?.minlength">
+            must be at least 4 characters long.
+        </div>
+        <br>
+        <input
+            #pass="ngModel"
+            name="password"
+            placeholder="Password"
+            type="password"
+            [(ngModel)]="user.password"
+            required>
+        <div
+            *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+            class="not-valid">
+            This field is invalid
+        </div>
+        <br>
+        <input
+            name="age"
+            placeholder="Age"
+            type="number"
+            [(ngModel)]="user.age">
+        <br>
+        <input
+            name="active"
+            type="checkbox"
+            [(ngModel)]="user.isActive"
+            checked>
+        Active User
+        <br>
+        <button
+            type="submit"
+            [disabled]="userForm.invalid"
+            (click)="register()">
+            Create
+        </button>
+        <button
+            type="button"
+            routerLink="/login">
+            Back
+        </button>
+    </form>
+</div>

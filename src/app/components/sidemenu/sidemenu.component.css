@@ -1,0 +1,21 @@
+#side-menu {
+    width: 20%;
+    background: #252525;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    position: fixed;
+}
+
+.side-menu-content {
+    padding: 15px;
+}
+
+#side-title {
+    color: white;
+    font-size: 18px
+}
+.side-item {
+    color: white;
+    cursor: pointer;
+}
